@@ -1,0 +1,61 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.example.a22520724'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.a22520724"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true;
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            // Keep the proguardFiles line for when you re-enable ProGuard
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+
+    buildFeatures {
+        viewBinding = true
+    }
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.firebase.crashlytics.buildtools
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.appcompat.v131
+    implementation libs.okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0' // Ensure you're using a compatible version
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+    implementation 'org.bouncycastle:bctls-jdk15on:1.70'
+    implementation 'org.conscrypt:conscrypt-android:2.5.2'
+    implementation 'org.openjsse:openjsse:1.1.8'
+}
